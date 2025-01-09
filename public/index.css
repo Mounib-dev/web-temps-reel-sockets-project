@@ -163,3 +163,34 @@ button:hover {
   background-color: #374151;
   border-radius: 5px;
 }
+
+/* Welcome */
+#welcome-message {
+  text-align: center;
+}
+
+.arrow-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.arrow {
+  font-size: 2em;
+  color: #60a5fa;
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+}
+
+.right-arrow {
+  transform: scaleX(-1);
+}
