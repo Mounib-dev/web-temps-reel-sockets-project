@@ -1,0 +1,165 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #1f2937;
+  color: #f3f4f6;
+  margin: 0;
+  display: flex;
+  height: 100vh;
+}
+
+/* Barre de navigation latérale */
+.sidebar {
+  background-color: #111827;
+  width: 250px;
+  height: 100%;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar h2 {
+  color: #60a5fa;
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 1em;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.sidebar a:hover {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.sidebar a.active {
+  background-color: #1d4ed8;
+  color: #ffffff;
+}
+
+.sidebar a:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* Main Container */
+.container {
+  background: #1e293b;
+  padding: 25px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  width: 90%;
+  max-width: 600px;
+  margin: auto;
+  color: #e5e7eb;
+}
+
+#event-name,
+#remaining-spots {
+  font-size: 1.2em;
+  margin-bottom: 15px;
+  color: #93c5fd;
+}
+
+/* Formulaire */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+form input,
+form button {
+  width: 200px;
+  height: 40px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+form input {
+  width: 400px;
+}
+
+form input {
+  border: 1px solid #4b5563;
+  background-color: #374151;
+  color: #f3f4f6;
+}
+
+form button {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+}
+
+form button:hover {
+  background-color: #1d4ed8;
+  transform: scale(1.05);
+}
+
+/* Liste des utilisateurs inscrits */
+#users-list li {
+  background-color: #374151;
+  border: 1px solid #4b5563;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 0.95em;
+  color: #e5e7eb;
+}
+
+button {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #1d4ed8;
+  transform: scale(1.05);
+}
+
+#users-list li::before {
+  content: "👤";
+  margin-right: 10px;
+}
+
+#users-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.container,
+.sidebar {
+  transition: all 0.3s ease-in-out;
+}
+
+#users-list {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#users-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+#users-list::-webkit-scrollbar-thumb {
+  background-color: #374151;
+  border-radius: 5px;
+}
