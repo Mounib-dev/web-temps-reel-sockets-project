@@ -87,6 +87,9 @@ io.on("connection", (socket) => {
     // Notifie tous les utilisateurs de la "room" de la mise à jour
     io.to(event).emit("updateSpots", eventInfo.spots);
     io.to(event).emit("updateUsers", eventInfo.users);
+
+    // Informer uniquement le client actuel pour une confirmation rapide
+    socket.emit("registrationSuccess", { name, tickets, event });
   });
 
   // Gestion de la déconnexion d'un utilisateur

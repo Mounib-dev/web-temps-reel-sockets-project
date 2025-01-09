@@ -84,6 +84,11 @@ socket.on("errorMessage", (message) => {
   document.getElementById("error-message").textContent = message;
 });
 
+socket.on("registrationSuccess", ({ name, tickets, event }) => {
+  console.log(`${name} a réservé ${tickets} ticket(s) pour ${event}.`);
+  updateEventUI();
+});
+
 // Met à jour l'interface utilisateur au chargement initial
 updateEventUI();
 
