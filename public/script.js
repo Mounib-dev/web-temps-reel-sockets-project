@@ -1,6 +1,6 @@
 const socket = io();
 
-let currentEvent = "Concert Metallica"; // Évènement par défaut
+let currentEvent = "Concert Metallica"; // Évènement par défaut (aucun)
 
 // On stocke les places disponibles et les utilisateurs inscrits pour chaque événement
 const eventSpots = {
@@ -82,6 +82,9 @@ socket.on("updateUsers", (users) => {
 // Affiche un message d'erreur en cas de problème
 socket.on("errorMessage", (message) => {
   document.getElementById("error-message").textContent = message;
+  setTimeout(() => {
+    document.getElementById("error-message").textContent = "";
+  }, 10 * 1000);
 });
 
 socket.on("registrationSuccess", ({ name, tickets, event }) => {
@@ -96,7 +99,21 @@ updateEventUI();
 const links = document.querySelectorAll(".sidebar a");
 links.forEach((link) => {
   link.addEventListener("click", () => {
+    console.log(link);
     links.forEach((l) => l.classList.remove("active")); // Retire "active" de l'autre évènement (Ici il y en a que 2)
     link.classList.add("active"); // Ajoute "active" au lien cliqué
   });
 });
+
+// Welcome
+function selectEvent(eventName) {
+  document.getElementById("welcome-message").style.display = "none";
+  document.getElementById("event-content").style.display = "block";
+  // document.getElementById("selected-event").textContent = eventName;
+  document.getElementById("spots-count").textContent = "5";
+  document.getElementById("users-list").innerHTML = "";
+}
+
+window.onload = function () {
+  document.getElementById("event-content").style.display = "none";
+};
